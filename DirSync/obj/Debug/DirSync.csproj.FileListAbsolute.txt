@@ -1,0 +1,2 @@
+C:\Users\Jax\Source\DirSync\DirSync\bin\Debug\DirSync.exe.config
+C:\Users\Jax\Source\Repos\DirSync\DirSync\bin\Debug\DirSync.exe.config
