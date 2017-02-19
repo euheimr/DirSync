@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DirSync
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class frmMain : System.Windows.Forms.Form
     {
-        public Form()
+        public frmMain()
         {
             InitializeComponent();
         }

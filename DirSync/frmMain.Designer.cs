@@ -1,6 +1,6 @@
 ﻿namespace DirSync
 {
-    partial class Form
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.okButton = new System.Windows.Forms.Button();
             this.fromDirBox = new System.Windows.Forms.TextBox();
             this.toDirBox = new System.Windows.Forms.TextBox();

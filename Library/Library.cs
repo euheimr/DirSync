@@ -6,6 +6,7 @@ namespace Library
 {
     public class Library
     {
+
         //Checks user entered directory path
         public bool CheckPath(string userPath)
         {
@@ -40,5 +41,17 @@ namespace Library
             }
             return (invalidPath);
         }
+
+        //Find the files and directories that have changed
+        public static void FileWatcher()
+        {
+            
+            FileSystemWatcher fsw = new FileSystemWatcher();
+            //fsw.Path = dirPath;
+        }
+
+
+
+
     }
 }
