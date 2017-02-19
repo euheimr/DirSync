@@ -17,7 +17,9 @@ namespace DirSync
             InitializeComponent();
         }
 
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

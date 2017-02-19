@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.okButton = new System.Windows.Forms.Button();
-            this.fromDir = new System.Windows.Forms.TextBox();
-            this.toDir = new System.Windows.Forms.TextBox();
+            this.fromDirBox = new System.Windows.Forms.TextBox();
+            this.toDirBox = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // okButton
@@ -41,33 +44,50 @@
             this.okButton.TabIndex = 5;
             this.okButton.Text = "OK";
             // 
-            // fromDir
+            // fromDirBox
             // 
-            this.fromDir.AcceptsTab = true;
-            this.fromDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromDir.Location = new System.Drawing.Point(70, 68);
-            this.fromDir.Name = "fromDir";
-            this.fromDir.Size = new System.Drawing.Size(389, 20);
-            this.fromDir.TabIndex = 3;
-            this.fromDir.TabStop = false;
-            this.fromDir.Text = "Copy from..";
+            this.fromDirBox.AcceptsTab = true;
+            this.fromDirBox.AccessibleName = "fromDirBox";
+            this.fromDirBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDirBox.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.fromDirBox.Location = new System.Drawing.Point(70, 68);
+            this.fromDirBox.Name = "fromDirBox";
+            this.fromDirBox.Size = new System.Drawing.Size(389, 20);
+            this.fromDirBox.TabIndex = 3;
+            this.fromDirBox.TabStop = false;
+            this.fromDirBox.Text = "Copy from..";
+            this.fromDirBox.WordWrap = false;
             // 
-            // toDir
+            // toDirBox
             // 
-            this.toDir.AcceptsTab = true;
-            this.toDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDir.Location = new System.Drawing.Point(70, 119);
-            this.toDir.Name = "toDir";
-            this.toDir.Size = new System.Drawing.Size(389, 20);
-            this.toDir.TabIndex = 4;
-            this.toDir.TabStop = false;
-            this.toDir.Text = "Copy to..";
+            this.toDirBox.AcceptsTab = true;
+            this.toDirBox.AccessibleName = "toDirBox";
+            this.toDirBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDirBox.Location = new System.Drawing.Point(70, 108);
+            this.toDirBox.Name = "toDirBox";
+            this.toDirBox.Size = new System.Drawing.Size(389, 20);
+            this.toDirBox.TabIndex = 4;
+            this.toDirBox.TabStop = false;
+            this.toDirBox.Text = "Copy to..";
+            this.toDirBox.WordWrap = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(70, 146);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(389, 10);
+            this.progressBar1.TabIndex = 6;
+            // 
+            // folderBrowserDialog1
+            // 
+            this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(498, 417);
-            this.Controls.Add(this.toDir);
-            this.Controls.Add(this.fromDir);
+            this.ClientSize = new System.Drawing.Size(498, 223);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.toDirBox);
+            this.Controls.Add(this.fromDirBox);
             this.Controls.Add(this.okButton);
             this.Name = "Form1";
             this.ResumeLayout(false);
@@ -78,8 +98,11 @@
         #endregion
 
         private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.TextBox fromDir;
-        private System.Windows.Forms.TextBox toDir;
+        private System.Windows.Forms.TextBox fromDirBox;
+        private System.Windows.Forms.TextBox toDirBox;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
     }
 }
 
