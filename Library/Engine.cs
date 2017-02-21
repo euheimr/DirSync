@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security;
+using System.Windows.Forms;
 
 namespace Library
 {
@@ -43,22 +44,22 @@ namespace Library
 
             catch (ArgumentException)
             {
-                Console.WriteLine("Bad Arguments");
+                MessageBox.Show("Bad Arguments");
             }
 
             catch (SecurityException)
             {
-                Console.WriteLine("File is read only.");
+                MessageBox.Show("File is read only.");
             }
 
             catch (NotSupportedException)
             {
-                Console.WriteLine("Not supported.");
+                MessageBox.Show("Not supported.");
             }
 
             catch (PathTooLongException)
             {
-                Console.WriteLine("Path is too long.");
+                MessageBox.Show("Path is too long.");
             }
             return status;
         }
