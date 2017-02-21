@@ -37,28 +37,28 @@
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.fromLabel = new System.Windows.Forms.Label();
             this.toLabel = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // okButton
             // 
             this.okButton.AccessibleName = "okButton";
-            this.okButton.Location = new System.Drawing.Point(384, 169);
+            this.okButton.Location = new System.Drawing.Point(398, 145);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(88, 23);
             this.okButton.TabIndex = 5;
-            this.okButton.Text = "OK";
+            this.okButton.Text = "KER-BLOOEY";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // fromTextBox
             // 
             this.fromTextBox.AcceptsTab = true;
             this.fromTextBox.AccessibleName = "fromDirBox";
-            this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.fromTextBox.Location = new System.Drawing.Point(70, 68);
             this.fromTextBox.Name = "fromTextBox";
-            this.fromTextBox.Size = new System.Drawing.Size(389, 20);
+            this.fromTextBox.Size = new System.Drawing.Size(416, 22);
             this.fromTextBox.TabIndex = 3;
             this.fromTextBox.TabStop = false;
             this.fromTextBox.WordWrap = false;
@@ -68,10 +68,10 @@
             // 
             this.toTextBox.AcceptsTab = true;
             this.toTextBox.AccessibleName = "toDirBox";
-            this.toTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toTextBox.Location = new System.Drawing.Point(70, 108);
             this.toTextBox.Name = "toTextBox";
-            this.toTextBox.Size = new System.Drawing.Size(389, 20);
+            this.toTextBox.Size = new System.Drawing.Size(416, 22);
             this.toTextBox.TabIndex = 4;
             this.toTextBox.TabStop = false;
             this.toTextBox.WordWrap = false;
@@ -88,41 +88,51 @@
             // fromLabel
             // 
             this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(13, 74);
+            this.fromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromLabel.Location = new System.Drawing.Point(15, 68);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(33, 13);
+            this.fromLabel.Size = new System.Drawing.Size(47, 16);
             this.fromLabel.TabIndex = 7;
             this.fromLabel.Text = "From:";
             // 
             // toLabel
             // 
             this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(13, 114);
+            this.toLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toLabel.Location = new System.Drawing.Point(15, 108);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(23, 13);
+            this.toLabel.Size = new System.Drawing.Size(31, 16);
             this.toLabel.TabIndex = 8;
             this.toLabel.Text = "To:";
             // 
-            // progressBar1
+            // textBox1
             // 
-            this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Location = new System.Drawing.Point(70, 146);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(389, 10);
-            this.progressBar1.TabIndex = 6;
-            this.progressBar1.UseWaitCursor = true;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(18, 13);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(468, 23);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.Text = "DirectorySync v0.1\r\n\r\n";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // frmMain
             // 
-            this.ClientSize = new System.Drawing.Size(498, 223);
+            this.AccessibleDescription = "";
+            this.ClientSize = new System.Drawing.Size(498, 180);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.toLabel);
             this.Controls.Add(this.fromLabel);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.toTextBox);
             this.Controls.Add(this.fromTextBox);
             this.Controls.Add(this.okButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
+            this.Text = "DirectorySync";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,7 +148,7 @@
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.Label fromLabel;
         private System.Windows.Forms.Label toLabel;
-        public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
