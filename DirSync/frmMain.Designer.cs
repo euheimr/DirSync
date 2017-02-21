@@ -116,7 +116,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(468, 23);
             this.textBox1.TabIndex = 9;
-            this.textBox1.Text = "DirectorySync v0.1\r\n\r\n";
+            this.textBox1.Text = "DirectorySync v1";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // frmMain
