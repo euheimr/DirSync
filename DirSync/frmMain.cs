@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library;
 
 namespace DirSync
 {
@@ -15,11 +10,35 @@ namespace DirSync
         public frmMain()
         {
             InitializeComponent();
+   
         }
 
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        //On button click from the form, compares files in "From" to "To" dir, only copies
+        // & overwrites "To" files..
+        private void okButton_Click(object sender, EventArgs e)
         {
+            //initialize frmMain
+            frmMain form = new frmMain();
+
+            string result = "";
+
+
+            //For storing directory strings
+            List<string> list = new List<string>();
+            list.Add(fromDirBox.Text);
+            list.Add(toDirBox.Text);
+
+            //check if file paths are valid
+            Engine.IsValidPath(fromDirBox.Text);
+            Engine.IsValidPath(toDirBox.Text);
+            Engine.CheckPath(fromDirBox.Text, out result);
+            Engine.CheckPath(toDirBox.Text, out result);
+
+            //showing box text from fromDirBox
+            MessageBox.Show(this.fromDirBox.Text);
 
         }
+
+
     }
 }

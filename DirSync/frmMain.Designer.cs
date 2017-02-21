@@ -36,6 +36,8 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.fromLabel = new System.Windows.Forms.Label();
+            this.toLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // okButton
@@ -46,6 +48,7 @@
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 5;
             this.okButton.Text = "OK";
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // fromDirBox
             // 
@@ -58,7 +61,6 @@
             this.fromDirBox.Size = new System.Drawing.Size(389, 20);
             this.fromDirBox.TabIndex = 3;
             this.fromDirBox.TabStop = false;
-            this.fromDirBox.Text = "from";
             this.fromDirBox.WordWrap = false;
             // 
             // toDirBox
@@ -71,31 +73,47 @@
             this.toDirBox.Size = new System.Drawing.Size(389, 20);
             this.toDirBox.TabIndex = 4;
             this.toDirBox.TabStop = false;
-            this.toDirBox.Text = "to";
             this.toDirBox.WordWrap = false;
             // 
             // progressBar1
             // 
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.progressBar1.Location = new System.Drawing.Point(70, 146);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(389, 10);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 6;
             this.progressBar1.UseWaitCursor = true;
             // 
-            // folderBrowserDialog1
+            // fromLabel
             // 
-            this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
+            this.fromLabel.AutoSize = true;
+            this.fromLabel.Location = new System.Drawing.Point(13, 74);
+            this.fromLabel.Name = "fromLabel";
+            this.fromLabel.Size = new System.Drawing.Size(33, 13);
+            this.fromLabel.TabIndex = 7;
+            this.fromLabel.Text = "From:";
             // 
-            // Form
+            // toLabel
+            // 
+            this.toLabel.AutoSize = true;
+            this.toLabel.Location = new System.Drawing.Point(13, 114);
+            this.toLabel.Name = "toLabel";
+            this.toLabel.Size = new System.Drawing.Size(23, 13);
+            this.toLabel.TabIndex = 8;
+            this.toLabel.Text = "To:";
+            // 
+            // frmMain
             // 
             this.ClientSize = new System.Drawing.Size(498, 223);
+            this.Controls.Add(this.toLabel);
+            this.Controls.Add(this.fromLabel);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.toDirBox);
             this.Controls.Add(this.fromDirBox);
             this.Controls.Add(this.okButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form";
+            this.Name = "frmMain";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,8 +128,8 @@
         public System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         public System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
-
-
+        private System.Windows.Forms.Label fromLabel;
+        private System.Windows.Forms.Label toLabel;
     }
 }
 

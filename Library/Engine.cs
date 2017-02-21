@@ -4,7 +4,7 @@ using System.Security;
 
 namespace Library
 {
-    public class Library
+    public class Engine
     {
         /// <summary>
         /// Gets a value that tells whether dirPath is a valid path

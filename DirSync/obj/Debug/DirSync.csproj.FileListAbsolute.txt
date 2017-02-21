@@ -21,4 +21,4 @@ C:\Users\Jax\Source\Repos\DirSync\DirSync\obj\Debug\DirSync.exe
 C:\Users\Jax\Source\Repos\DirSync\DirSync\obj\Debug\DirSync.pdb
 C:\Users\Jax\Source\Repos\DirSync\DirSync\bin\Debug\Library.dll
 C:\Users\Jax\Source\Repos\DirSync\DirSync\bin\Debug\Library.pdb
-C:\Users\Jax\Source\Repos\DirSync\DirSync\obj\Debug\DirSync.Form.resources
+C:\Users\Jax\Source\Repos\DirSync\DirSync\obj\Debug\DirSync.frmMain.resources
