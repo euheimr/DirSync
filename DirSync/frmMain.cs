@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using Library;
 using System.IO;
 using System.Diagnostics;
+
 
 namespace DirSync
 {
@@ -12,11 +12,19 @@ namespace DirSync
         public frmMain()
         {
             InitializeComponent();
-   
+            Engine file = new Engine();
+
+            //request permissions so there can be file read/write
+            file.PermsPath();
+
+            // creating an instance so i can use ReadFromFile method from Engine
+            //This will be run at runtime of frmMain
+            file.ReadFromFile();
+
         }
 
         // This method is to recursively look and copy directories
-        private static void DirCopy(string fromDir, string toDir, bool copySubDir)
+        private void DirCopy(string fromDir, string toDir, bool copySubDir)
         {
             //find sub-directories
             DirectoryInfo dir = new DirectoryInfo(fromDir);
@@ -81,8 +89,12 @@ namespace DirSync
                             string temppath = Path.Combine(toDir, subdir.Name);
                             DirCopy(subdir.FullName, temppath, copySubDir);
                         }
+
                     }
-                    
+                    // Writes to a file storing the "from" and "to" strings for dir location
+                    // this file will be checked at the beginning of the program launch too
+                    Engine instance = new Engine();
+                    instance.WriteToFile(fromDir, toDir);
                 }
             }
 

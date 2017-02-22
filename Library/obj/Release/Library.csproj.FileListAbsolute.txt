@@ -1,0 +1,5 @@
+C:\Users\Jax\Source\Repos\DirSync\Library\bin\Release\Library.dll
+C:\Users\Jax\Source\Repos\DirSync\Library\bin\Release\Library.pdb
+C:\Users\Jax\Source\Repos\DirSync\Library\obj\Release\Library.dll
+C:\Users\Jax\Source\Repos\DirSync\Library\obj\Release\Library.pdb
+C:\Users\Jax\Source\Repos\DirSync\Library\obj\Release\Library.csprojResolveAssemblyReference.cache

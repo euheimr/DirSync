@@ -1,12 +1,20 @@
 ﻿using System;
 using System.IO;
 using System.Security;
+using System.Text;
 using System.Windows.Forms;
+using System.Security.Permissions;
 
 namespace Library
 {
     public class Engine
     {
+
+        //This string is used for the WriteToFile method, which is located below
+        string saveDirLocation = @"C:\Users\%USER_NAME%\%APPDATA%\Roaming\DirSync\";
+        //used for permissions
+        string appDataPerms = @"C:\Users\%USER_NAME%\%APPDATA%\Roaming\";
+
         /// <summary>
         /// Gets a value that tells whether dirPath is a valid path
         /// </summary>
@@ -64,14 +72,53 @@ namespace Library
             return status;
         }
 
-
-        //Find the files and directories that have changed
-        public static void FileWatcher()
+        //This method, when invoked, will write a tvt file to:
+        // C:\Users\%USER_NAME%\%APPDATA%\Roaming\DirSync
+        // this will be used at the end of the okButton click method
+        // (refer to frmMain.cs)
+        public void WriteToFile(string fromDirSave, string toDirSave)
         {
+            
+            //create an array which will be used to write to a file
+            string[] DirSave = { fromDirSave, toDirSave };
 
-            FileSystemWatcher fsw = new FileSystemWatcher();
-            //fsw.Path = dirPath;
+            DirectoryInfo dir = new DirectoryInfo(saveDirLocation);
+
+            // checks the directory to see if %APPDATA%\DirSync exists
+            checkSaveDir();
+
+            DirectoryInfo[] dirs = dir.GetDirectories();
+            // Writes the two strings to userDirectories.txt
+            File.WriteAllLines(saveDirLocation + "userDirectories.txt", DirSave);
         }
+
+        public void ReadFromFile()
+        {
+            string[] DirSave = File.ReadAllLines(saveDirLocation, Encoding.UTF8);
+            
+        }
+
+
+        //check if save directory exists
+        public void checkSaveDir()
+        {
+            DirectoryInfo dir = new DirectoryInfo(saveDirLocation);
+            if (!Directory.Exists(saveDirLocation))
+            {
+                Directory.CreateDirectory(saveDirLocation);
+            }
+        }
+
+
+        // permissions for reading and writing to saveDirLocation
+        public void PermsPath()
+        {
+            FileIOPermission perms = new FileIOPermission(PermissionState.None);
+            perms.AddPathList(FileIOPermissionAccess.AllAccess, appDataPerms);
+            checkSaveDir();
+        }
+
+
 
 
         /*  DEPRECATED
