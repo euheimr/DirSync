@@ -11,9 +11,11 @@ namespace Library
     {
 
         //This string is used for the WriteToFile method, which is located below
-        string saveDirLocation = @"C:\Users\%USER_NAME%\%APPDATA%\Roaming\DirSync\";
-        //used for permissions
-        string appDataPerms = @"C:\Users\%USER_NAME%\%APPDATA%\Roaming\";
+        string saveDirLocation = @"C:\DirSync";
+
+        //file location
+        string fileLoc = @"C:\DirSync\userDirectories.txt";
+
 
         /// <summary>
         /// Gets a value that tells whether dirPath is a valid path
@@ -89,13 +91,35 @@ namespace Library
 
             DirectoryInfo[] dirs = dir.GetDirectories();
             // Writes the two strings to userDirectories.txt
+            PermsPath();
+            File.Open(saveDirLocation + "userDirectories.txt", FileMode.Create);
             File.WriteAllLines(saveDirLocation + "userDirectories.txt", DirSave);
         }
 
         public void ReadFromFile()
         {
-            string[] DirSave = File.ReadAllLines(saveDirLocation, Encoding.UTF8);
-            
+            //check if dirsync directory exists
+            checkSaveDir();
+            //checks to see if the directory locations have been saved
+            if (File.Exists(fileLoc))
+            {
+                try
+                {
+                    PermsPath();
+                    string[] DirSave = File.ReadAllLines(fileLoc, Encoding.UTF8);
+                    
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+            else
+            {
+                File.Create(fileLoc);
+            }
+ 
         }
 
 
@@ -109,53 +133,21 @@ namespace Library
             }
         }
 
-
+        //TODO: FIX THE PERMISSIONS FOR FILE EDIT
         // permissions for reading and writing to saveDirLocation
         public void PermsPath()
         {
-            FileIOPermission perms = new FileIOPermission(PermissionState.None);
-            perms.AddPathList(FileIOPermissionAccess.AllAccess, appDataPerms);
-            checkSaveDir();
-        }
-
-
-
-
-        /*  DEPRECATED
-        
-        public bool CheckPath2(string userPath)
-        {
-            char[] invalidPathChars;
-            int invalidCharPos = -1;
-            bool endOfPath = false;
-            bool invalidPath = false;
-        
-            while (!endOfPath)
+            try
             {
-              invalidPathChars = Path.GetInvalidPathChars();
-              invalidCharPos = invalidCharPos + 1;
-        
-                if (invalidCharPos == -1)
-                {
-                    endOfPath = true;
-                }
-                else
-                {
-                    invalidPath = true;
-                    Console.WriteLine("Invalid path. Please double check it!");
-        
-                    if (invalidCharPos >= userPath.Length - 1)
-                    {
-                        endOfPath = true;
-                    }
-                    else
-                    {
-                        invalidCharPos++;
-                    }
-                }
+                FileIOPermission perms = new FileIOPermission(PermissionState.Unrestricted);
+                perms.AddPathList(FileIOPermissionAccess.AllAccess, fileLoc);
+                checkSaveDir();
             }
-            return (invalidPath);
+            catch (UnauthorizedAccessException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
-        */
+
     }
 }
