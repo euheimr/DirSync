@@ -5,6 +5,5 @@ C:\Users\Jax\Source\Repos\DirSync\Library\obj\Debug\Library.dll
 C:\Users\Jax\Source\Repos\DirSync\Library\obj\Debug\Library.pdb
 C:\Users\Milo\Projects\GitHub\DirSync\Library\bin\Debug\Library.dll
 C:\Users\Milo\Projects\GitHub\DirSync\Library\bin\Debug\Library.pdb
-C:\Users\Milo\Projects\GitHub\DirSync\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\Milo\Projects\GitHub\DirSync\Library\obj\Debug\Library.dll
 C:\Users\Milo\Projects\GitHub\DirSync\Library\obj\Debug\Library.pdb

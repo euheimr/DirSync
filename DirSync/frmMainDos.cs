@@ -40,6 +40,14 @@ namespace DirSync
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Nope.", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                try
+                {
+                    engineDos.WriteToLog(ex.Message);
+                }
+                catch (Exception)
+                {
+                    // whatever
+                }
             }
 
         }
