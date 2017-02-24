@@ -31,5 +31,14 @@ namespace DirSync.Properties {
                 return ((string)(this["saveDirLocation"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\DirSyncLogs")]
+        public string logDir {
+            get {
+                return ((string)(this["logDir"]));
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace DirSync
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Initialize Form
-            Application.Run(new frmMain());
+            Application.Run(new frmMainDos());
 
             //Initialize new Form instance, so I can control the inputs from the Form
             //Form form = new Form(); 

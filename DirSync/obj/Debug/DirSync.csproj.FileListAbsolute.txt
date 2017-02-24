@@ -45,3 +45,4 @@ C:\Users\Milo\Projects\GitHub\DirSync\DirSync\obj\Debug\DirSync.Properties.Resou
 C:\Users\Milo\Projects\GitHub\DirSync\DirSync\obj\Debug\DirSync.csproj.GenerateResource.Cache
 C:\Users\Milo\Projects\GitHub\DirSync\DirSync\obj\Debug\DirSync.exe
 C:\Users\Milo\Projects\GitHub\DirSync\DirSync\obj\Debug\DirSync.pdb
+C:\Users\Milo\Projects\GitHub\DirSync\DirSync\obj\Debug\DirSync.frmMainDos.resources
