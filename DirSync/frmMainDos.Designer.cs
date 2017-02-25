@@ -35,6 +35,7 @@
             this.fromTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.listStatus = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.toLabel.AutoSize = true;
             this.toLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toLabel.Location = new System.Drawing.Point(94, 158);
+            this.toLabel.Location = new System.Drawing.Point(94, 52);
             this.toLabel.Name = "toLabel";
             this.toLabel.Size = new System.Drawing.Size(31, 16);
             this.toLabel.TabIndex = 16;
@@ -52,7 +53,7 @@
             // 
             this.fromLabel.AutoSize = true;
             this.fromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromLabel.Location = new System.Drawing.Point(94, 118);
+            this.fromLabel.Location = new System.Drawing.Point(94, 12);
             this.fromLabel.Name = "fromLabel";
             this.fromLabel.Size = new System.Drawing.Size(47, 16);
             this.fromLabel.TabIndex = 15;
@@ -62,8 +63,10 @@
             // 
             this.toTextBox.AcceptsTab = true;
             this.toTextBox.AccessibleName = "toDirBox";
+            this.toTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toTextBox.Location = new System.Drawing.Point(149, 158);
+            this.toTextBox.Location = new System.Drawing.Point(149, 52);
             this.toTextBox.Name = "toTextBox";
             this.toTextBox.Size = new System.Drawing.Size(416, 22);
             this.toTextBox.TabIndex = 1;
@@ -73,9 +76,11 @@
             // 
             this.fromTextBox.AcceptsTab = true;
             this.fromTextBox.AccessibleName = "fromDirBox";
+            this.fromTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fromTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.fromTextBox.Location = new System.Drawing.Point(149, 118);
+            this.fromTextBox.Location = new System.Drawing.Point(149, 12);
             this.fromTextBox.Name = "fromTextBox";
             this.fromTextBox.Size = new System.Drawing.Size(416, 22);
             this.fromTextBox.TabIndex = 0;
@@ -84,7 +89,8 @@
             // okButton
             // 
             this.okButton.AccessibleName = "okButton";
-            this.okButton.Location = new System.Drawing.Point(477, 195);
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(477, 89);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(88, 23);
             this.okButton.TabIndex = 2;
@@ -95,11 +101,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // listStatus
+            // 
+            this.listStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listStatus.FormattingEnabled = true;
+            this.listStatus.Location = new System.Drawing.Point(149, 118);
+            this.listStatus.Name = "listStatus";
+            this.listStatus.Size = new System.Drawing.Size(416, 199);
+            this.listStatus.TabIndex = 17;
+            // 
             // frmMainDos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 336);
+            this.Controls.Add(this.listStatus);
             this.Controls.Add(this.toLabel);
             this.Controls.Add(this.fromLabel);
             this.Controls.Add(this.toTextBox);
@@ -107,6 +125,7 @@
             this.Controls.Add(this.okButton);
             this.Name = "frmMainDos";
             this.Text = "frmMainDos";
+            this.Load += new System.EventHandler(this.frmMainDos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,5 +140,6 @@
         public System.Windows.Forms.TextBox fromTextBox;
         public System.Windows.Forms.Button okButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ListBox listStatus;
     }
 }

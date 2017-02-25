@@ -17,6 +17,12 @@ namespace Library
         public string ToDir { get; set; }
 
 
+        // define the event handler (what parameteres)
+        public delegate void StatusMessageEventHandler(string message);
+
+        // declare an instance of the handler so we can call it
+        public event StatusMessageEventHandler StatusMessage;
+
         /// <summary>
         /// this is the "Constructor" method for the class.  
         /// it take the intialization parameters.
@@ -30,6 +36,7 @@ namespace Library
             this.LogFilePath = this.LogPath + System.DateTime.Now.ToFileDateTimeString() + ".txt";  // so is ToFileDateTimeString() :-)
             this.FromDir = fromDir.Trim().ToDirSlashString();
             this.ToDir = toDir.Trim().ToDirSlashString();
+            
 
         }
 
@@ -39,8 +46,11 @@ namespace Library
             this.WriteToLog(this.FromDir + " -> " + this.ToDir);
             this.DirCopy(this.FromDir, this.ToDir);
 
+
             // need to make sure that files in source dont exist in destination too
-            
+
+
+            this.WriteToLog("Done.");
         }
 
         /// <summary>
@@ -105,8 +115,10 @@ namespace Library
             // add date/time to the front of the message
             message = System.DateTime.Now.ToDateTimeString() + " " + message;
 
-            TextWriter tw = null;
-            tw = System.IO.File.AppendText(this.LogFilePath);
+            // send the message through the handler
+            StatusMessage(message);
+
+            TextWriter tw = System.IO.File.AppendText(this.LogFilePath);
             tw.WriteLine(message);
             tw.Flush();
             tw.Close();

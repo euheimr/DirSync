@@ -18,6 +18,10 @@ namespace DirSync
             InitializeComponent();
         }
 
+        private void frmMainDos_Load(object sender, EventArgs e)
+        {
+
+        }
         private void okButton_Click(object sender, EventArgs e)
         {
 
@@ -30,6 +34,10 @@ namespace DirSync
             // declare an instance of EngineDos
             var engineDos = new Library.EngineDos(Properties.Settings.Default.logDir, this.fromTextBox.Text, this.toTextBox.Text);
 
+            // attach to handler so we recieve messages from the engine (they will end up in our engineDos_StatusMessage method)
+            engineDos.StatusMessage +=  new EngineDos.StatusMessageEventHandler(this.engineDos_StatusMessage);
+
+
             // put all non-recoverable error handling is outside of libraries because if you use this library 
             // in another application, you dont know how that application wants to deal with the errors.
             try
@@ -39,7 +47,6 @@ namespace DirSync
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Nope.", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 try
                 {
                     engineDos.WriteToLog(ex.Message);
@@ -48,7 +55,11 @@ namespace DirSync
                 {
                     // whatever
                 }
+                MessageBox.Show(ex.Message, "Nope.", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+
+            // disconnect handler
+            engineDos.StatusMessage -= new EngineDos.StatusMessageEventHandler(this.engineDos_StatusMessage);
 
         }
 
@@ -76,5 +87,16 @@ namespace DirSync
 
             return formValid;
         }
+
+
+        private void engineDos_StatusMessage(string message)
+        {
+            this.listStatus.Items.Add(message);
+            while (this.listStatus.Items.Count > 100)
+            { this.listStatus.Items.Remove(0); }
+            this.listStatus.SelectedIndex = this.listStatus.Items.Count - 1;
+        }
+
+
     }
 }
